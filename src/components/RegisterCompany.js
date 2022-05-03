@@ -41,7 +41,7 @@ export default function RegisterCompany(){
     const onLogout = (e) =>{
         e.preventDefault();
         logout(dispatch);
-        window.location.reload()
+        // window.location.reload()
     }
 
     const getAge = (dateString) =>{
