@@ -32,6 +32,23 @@ export default function RegisterCompany(){
         logout(dispatch);
         window.location.reload()
     }
+
+    const getAge = (dateString) =>{
+        var today = new Date();
+        var birthDate = new Date(dateString);
+        var age = today.getFullYear() - birthDate.getFullYear();
+        var m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        return age;
+    }
+
+    const onDateofBirthChange = (e) =>{
+        e.preventDefault();
+        var born = new Date(e.target.value);
+        setDob(getAge(born));
+    }
     
     return(
         <React.Fragment>
@@ -61,7 +78,7 @@ export default function RegisterCompany(){
                         </div>
                         <div className="col-xl-12 mb-4">
                             <label className='form-label'>Date of Birth</label>
-                            <input className='form-control' name="dob" type="text" onChange={e=>setDob(e.target.value)}></input>
+                            <input className='form-control' name="dob" type="date" onChange={onDateofBirthChange}></input>
                         </div>
                         <div className="col-xl-12 mb-4">
                             <label className='form-label'>about yourself</label>

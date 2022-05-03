@@ -30,6 +30,7 @@ export default function Login(props){
             });
 
 			history.push('/registercompany');
+            window.location.reload();
 
 		} catch (error) {
 			console.log(error);
