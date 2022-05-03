@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Elsie+Swash+Caps:wght@900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300&display=swap');
+
+@import './../node_modules/bootstrap/scss/bootstrap.scss';
+
+:root{
+  --bs-font-sans-serif:'Nunito', sans-serif;
+}
+
+
+table{
+  border: 1px solid #ddd;
+  th,td{
+    padding: 10px;
+  }
+  tr{
+    border-bottom: 1px solid #eee;
+  }
+  tbody{
+    & tr{
+      &:nth-child(odd){
+        background-color: #ddd;
+      }
+    }
+  }
+}
