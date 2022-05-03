@@ -17,6 +17,13 @@ export default function RegisterCompany(){
         setData(prev=>[...prev,{email:email,company:company,address:address , phone:phone,country:country,dob:dob,about:about}]);
         e.target.reset();
     }
+
+    const onRemove = (e) =>{
+        e.preventDefault();
+        setData(prev=>{
+            return prev.filter((d,i)=>i!==parseInt(e.target.id));
+        });
+    }
     
     return(
         <React.Fragment>
@@ -65,6 +72,7 @@ export default function RegisterCompany(){
                                     <th>Country</th>
                                     <th>Date of Birth</th>
                                     <th>About</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -78,14 +86,16 @@ export default function RegisterCompany(){
                                             <td>{d.country}</td>
                                             <td>{d.dob}</td>
                                             <td>{d.about}</td>
+                                            <td><button id={i} className="btn btn-danger" onClick={onRemove}>Remove</button></td>
                                         </tr>
                                     })
                                 }
                             </tbody>
                         </table>
-                        {
-
-                        }
+                        <div>
+                            <h3>Do you want to logout?</h3>
+                            <button className="btn btn-outline-primary">Logout</button>
+                        </div>
                     </div>
                 </div>
             </div>
