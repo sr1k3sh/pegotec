@@ -5,12 +5,12 @@ export default function Main(props){
     const onLogin = (e) =>{
         e.preventDefault();
         history.push("/login");
-        window.location.reload();
+        // window.location.reload();
     }
     const onRegisterCompany = (e) =>{
         e.preventDefault();
         history.push('/registercompany');
-        window.location.reload();
+        // window.location.reload();
     }
 
     return(
