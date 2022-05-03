@@ -15,8 +15,8 @@ export default function Main(props){
 
     return(
         <React.Fragment>
-           <div class="container">
-                <div class="row">
+           <div className="container">
+                <div className="row">
                     <button onClick={onLogin} className="btn btn-primary">Login</button>
                     <button onClick={onRegisterCompany} className="btn btn-outline-secondary mt-3">Register Company</button>
                 </div>
