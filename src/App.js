@@ -1,5 +1,5 @@
 import './App.scss';
-import { BrowserRouter as Router,Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Router,Switch } from 'react-router-dom';
 import routes from './config/Routes';
 import AppRoutes from './components/AppRoute';
 import { AuthProvider } from './context/Context';
@@ -10,8 +10,6 @@ function App() {
     <AuthProvider>
       <div className="App">
         <Router>
-          <Link to="/login">Login</Link>
-          <Link to="/registercompany">Register</Link>
           <Switch>
             {routes.map((route) => (
               <AppRoutes

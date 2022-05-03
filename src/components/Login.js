@@ -30,7 +30,7 @@ export default function Login(props){
             });
 
 			history.push('/registercompany');
-            
+
 		} catch (error) {
 			console.log(error);
 		}
@@ -40,7 +40,7 @@ export default function Login(props){
         <React.Fragment>
             <div className='bd-auth container-xl'>
                 <div className='row'>
-                    <form className='bd-auth__form col-md-5' onSubmit={onLogin}>
+                    <form className='bd-auth__form col-md-5 m-auto' onSubmit={onLogin}>
                         <h2 className='mb-5'>Login to you <strong className='text-primary'>Account</strong></h2>
                         <div className="col-xl-12 mb-4">
                             <label className='form-label'>Email</label>

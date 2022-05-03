@@ -1,4 +1,5 @@
 import React, { useState} from 'react';
+import { logout, useAuthDispatch } from '../context';
 
 export default function RegisterCompany(){
 
@@ -11,6 +12,7 @@ export default function RegisterCompany(){
     const [about, setAbout] = useState();
     const [data, setData] = useState([]);
 
+    const dispatch = useAuthDispatch();
 
     const onRegister = (e) =>{
         e.preventDefault(); 
@@ -23,6 +25,12 @@ export default function RegisterCompany(){
         setData(prev=>{
             return prev.filter((d,i)=>i!==parseInt(e.target.id));
         });
+    }
+
+    const onLogout = (e) =>{
+        e.preventDefault();
+        logout(dispatch);
+        window.location.reload()
     }
     
     return(
@@ -94,7 +102,7 @@ export default function RegisterCompany(){
                         </table>
                         <div>
                             <h3>Do you want to logout?</h3>
-                            <button className="btn btn-outline-primary">Logout</button>
+                            <button className="btn btn-outline-primary" onClick={onLogout}>Logout</button>
                         </div>
                     </div>
                 </div>

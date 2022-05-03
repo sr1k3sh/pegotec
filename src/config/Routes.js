@@ -15,7 +15,7 @@ const routes = [
 
     },
     {
-        path:'/main',
+        path:'/',
         component: Main,
         isPrivate:false
     }
