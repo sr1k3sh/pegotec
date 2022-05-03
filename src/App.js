@@ -1,5 +1,5 @@
 import './App.scss';
-import { BrowserRouter as Router,Switch } from 'react-router-dom';
+import { HashRouter as Router,Switch } from 'react-router-dom';
 import routes from './config/Routes';
 import AppRoutes from './components/AppRoute';
 import { AuthProvider } from './context/Context';
