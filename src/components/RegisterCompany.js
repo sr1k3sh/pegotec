@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState, useEffect} from 'react';
 import { logout, useAuthDispatch } from '../context';
 
 export default function RegisterCompany(){
@@ -13,6 +13,17 @@ export default function RegisterCompany(){
     const [data, setData] = useState([]);
 
     const dispatch = useAuthDispatch();
+
+    const [gcountry, gsetCountry] = useState();
+
+    useEffect(() => {
+        var respon = fetch('https://restcountries.com/v3.1/all').then(res=>res.json());
+    
+        respon.then(res=>gsetCountry(res))
+        return () => {
+            
+        }
+    }, [])
 
     const onRegister = (e) =>{
         e.preventDefault(); 
@@ -74,7 +85,13 @@ export default function RegisterCompany(){
                         </div>
                         <div className="col-xl-12 mb-4">
                             <label className='form-label'>Country</label>
-                            <input className='form-control' name="address" type="text" onChange={e=>setCountry(e.target.value)}></input>
+                            <select className='form-control' onChange={e=>setCountry(e.target.value)}>
+                                <option>Select Country</option>
+                                {
+                                    gcountry?.length > 0 && gcountry.map((g,i)=><option key={"option_"+i} value={g.name.common}>{g.name.common}</option>)
+                                }
+                            </select>
+                            {/* <input className='form-control' name="address" type="text" onChange={e=>setCountry(e.target.value)}></input> */}
                         </div>
                         <div className="col-xl-12 mb-4">
                             <label className='form-label'>Date of Birth</label>
